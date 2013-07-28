@@ -2,7 +2,7 @@ package com.viestards.formhelper;
 
 import static org.junit.Assert.*;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.viestards.formhelper.InputField;
@@ -11,8 +11,8 @@ public class InputFieldTest {
 
 	private static InputField input;
 	
-	@BeforeClass
-	public static void setUp(){
+	@Before
+	public void setUp(){
 		input=new InputField("testname", "");
 	}
 

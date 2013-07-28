@@ -21,7 +21,6 @@ public class FormHelper {
 	* checks for form validation
 	*/
 	public boolean isValid(){
-		
 		Set<ConstraintViolation<FormHelper>> validationResults =validator.validate(this);
 		
 		if (validationResults.size()==0){
@@ -37,7 +36,8 @@ public class FormHelper {
 	 * <input id="myid" name="myid" />
 	 * */
 	public String generate(){
-		
+		Set<ConstraintViolation<FormHelper>> validationResults =validator.validate(this);
+
 		return "";
 	}
 	

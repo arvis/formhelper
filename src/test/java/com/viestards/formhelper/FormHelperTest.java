@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 
 import junit.framework.Assert;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -14,7 +15,6 @@ import com.viestards.formhelper.FormHelper;
 public class FormHelperTest {
 
 	class CarForm extends FormHelper {
-		
 		@NotNull
 		private String brand;
 		private String licenceNumber;
@@ -38,35 +38,27 @@ public class FormHelperTest {
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		
-		
 	}
-	
 
+	private CarForm car;
 	
-	@BeforeClass
-    public static void setUp() {
-		
+	@Before
+    public void setUp() {
+		car =new CarForm() ;
+		car.setBrand("Ford");
 	}
-	
-	
 	@Test
 	public void testIsValid() {
-		CarForm car=new CarForm();
-		car.setBrand("Ford");
 		Assert.assertTrue(car.isValid());
-		//fail("Not yet implemented");
 	}
 	
 	@Test
 	public void testGenerate(){
-		fail("Not yet implemented");
+		String result=car.generate();
+		System.out.println(result);
+		Assert.assertEquals("", result);
 	}
 	
-	@Test
-	public void testGenerateBootstrap(){
-		fail("Not yet implemented");
-	}
 	
 	
 	
