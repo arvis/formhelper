@@ -57,13 +57,33 @@ public class InputFieldTest {
 		InputField harmfullInput=new InputField("simple", "value");
 		harmfullInput.setLabel("harmfull imput<script>alert('All your base are belong to us!')</script> ");
 		String result =harmfullInput.generate();
-		System.out.println(result);
+		//System.out.println(result);
 		assertEquals("<label for='simple' >"
 				+ "harmfull imput&lt;script&gt;"
 				+ "alert('All your base are belong to us!')&lt;/script&gt; </label>"
 				+ "<input name='simple' id='simple' value='value' />  ", result);
 	}
 	
+	/**
+	 * testing if different characters (russian,baltic etc) are displayed correctly
+	 * */
+	@Test
+	public void testEscapingAccents(){
+		input.setLabel("glāžšķūņu Преве́д" );
+		final String result=input.getFieldLabel();
+		//System.out.println(result);
+		assertEquals("<label for='testname' >glāž&scaron;ķūņu Преве́д</label>", result);
+	}
+	
+	/**
+	 * testing that value data should not be escaped
+	 * */
+	@Test
+	public void testEscpapingValue(){
+		input.setValue("glāžšķūņu Преве́д" );
+		final String result=input.getField();
+		assertEquals("<input name='testname' id='testname' value='glāž&scaron;ķūņu Преве́д' />", result);
+	}
 	
 
 

@@ -17,7 +17,6 @@ public class TextAreaFieldTest {
 	@Test
 	public void testGetField(){
 		String result =field.getField();
-		System.out.println(result);
 		assertEquals("<textarea name='testname' id='testname' rows='3' cols='40'>value1</textarea>", result);
 		
 	}
@@ -25,7 +24,6 @@ public class TextAreaFieldTest {
 	@Test
 	public void testGenerate() {
 		String result =field.generate();
-		System.out.println(result);
 		assertEquals("<label for='testname' >testname</label>"+
 				"<textarea name='testname' id='testname' rows='3' cols='40'>value1</textarea>  ", result);
 	}

@@ -33,6 +33,17 @@ public class OptionFieldTest {
 		assertEquals("<option value='myValue' selected>Optionlabel</option>", result);
 	}
 
+	@Test
+	public void testHtmlEscpae() {
+		OptionField fieldSelected= new  OptionField("šņukurs","Šņukurs",true);
+		String result=fieldSelected.getField();
+		//System.out.println(result);
+		assertEquals("<option value='&scaron;ņukurs' selected>&Scaron;ņukurs</option>", result);
+		
+		
+	}
+	
+	
 	
 
 }
