@@ -1,5 +1,8 @@
 package com.viestards.formhelper;
 
+import org.apache.commons.lang3.*;
+
+
 public abstract class BaseField  {
 	
 	private String name;
@@ -10,8 +13,8 @@ public abstract class BaseField  {
 	private String htmType;
 	
 	public BaseField(String name, String value ){
-		this.name=name;
-		this.value=value;
+		setName(name);
+		setValue(value);
 		label="";
 	}
 
@@ -41,7 +44,7 @@ public abstract class BaseField  {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name=StringEscapeUtils.escapeHtml4(name);
 	}
 
 	public String getValue() {
@@ -49,7 +52,7 @@ public abstract class BaseField  {
 	}
 
 	public void setValue(String value) {
-		this.value = value;
+		this.value=StringEscapeUtils.escapeHtml4(value);
 	}
 
 
@@ -58,7 +61,7 @@ public abstract class BaseField  {
 	}
 
 	public void setHtmType(String htmType) {
-		this.htmType = htmType;
+		this.htmType =StringEscapeUtils.escapeHtml4(htmType);
 	}
 
 
@@ -68,7 +71,7 @@ public abstract class BaseField  {
 
 
 	public void setLabel(String label) {
-		this.label = label;
+		this.label=StringEscapeUtils.escapeHtml4(label);
 	}
 
 	public String getFieldDelimiter() {
@@ -76,7 +79,7 @@ public abstract class BaseField  {
 	}
 
 	public void setFieldDelimiter(String fieldDelimiter) {
-		this.fieldDelimiter = fieldDelimiter;
+		this.fieldDelimiter=StringEscapeUtils.escapeHtml4(fieldDelimiter);
 	}
 
 	

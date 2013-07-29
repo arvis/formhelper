@@ -14,11 +14,12 @@ import com.viestards.formhelper.FormHelper;
 
 public class FormHelperTest {
 
-	class CarForm extends FormHelper {
+	class CarData {
 		@NotNull
 		private String brand;
 		private String licenceNumber;
 		private String description;
+		private String[] transmission={"auto","manual"};
 		
 		public String getBrand() {
 			return brand;
@@ -38,23 +39,32 @@ public class FormHelperTest {
 		public void setDescription(String description) {
 			this.description = description;
 		}
+		public String[] getTransmission() {
+			return transmission;
+		}
+		public void setTransmission(String[] transmission) {
+			this.transmission = transmission;
+		}
 	}
 
-	private CarForm car;
+	private FormHelper carForm;
+	private CarData car;
 	
 	@Before
     public void setUp() {
-		car =new CarForm() ;
+		car=new CarData();
 		car.setBrand("Ford");
+		
+		carForm=new FormHelper(car);
 	}
 	@Test
 	public void testIsValid() {
-		Assert.assertTrue(car.isValid());
+		Assert.assertTrue(carForm.isValid());
 	}
 	
 	@Test
 	public void testGenerate(){
-		String result=car.generate();
+		String result=carForm.generate();
 		System.out.println(result);
 		Assert.assertEquals("", result);
 	}

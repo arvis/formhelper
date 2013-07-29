@@ -11,9 +11,12 @@ import java.util.Set;
 public class FormHelper {
 	
 	private static Validator validator;
-	public FormHelper(){
+	private Object formObject;
+	
+	public FormHelper(Object formObject){
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();		
+		this.setFormObject(formObject);
 	}
 	
 	
@@ -49,6 +52,17 @@ public class FormHelper {
 	public String generateAsBootrsap(){
 		
 		return "";
+	}
+
+
+	public Object getFormObject() {
+		return formObject;
+	}
+
+
+	public void setFormObject(Object formObject) {
+		//TODO: check if some validation is needed
+		this.formObject = formObject;
 	}
 	
 	
