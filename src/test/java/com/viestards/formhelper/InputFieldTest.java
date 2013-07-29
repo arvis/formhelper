@@ -29,9 +29,16 @@ public class InputFieldTest {
 	}
 
 	@Test
+	public void testError(){
+		String result =input.getError("");
+		assertEquals("  ", result);
+	}
+	
+	
+	@Test
 	public void testGenerate() {
 		String result =input.generate();
-		assertEquals("<label for='testname' >testname</label> <input name='testname' id='testname' value='' /> ", result);
+		assertEquals("<label for='testname' >testname</label><input name='testname' id='testname' value='' />  ", result);
 	}
 	
 	
