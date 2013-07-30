@@ -20,7 +20,7 @@ public class InputFieldTest {
 	public void testGetField(){
 		String result =input.getField();
 		//org.junit.ComparisonFailure: expected:<<input []/>> but was:<<input [name='testname' id='testname' value='' ]/>>
-		assertEquals("<input name='testname' id='testname' value='' />", result);
+		assertEquals("<input type='text' name='testname' id='testname' value='' />", result);
 	}
 	@Test
 	public void testGetFieldLabel(){
@@ -61,7 +61,7 @@ public class InputFieldTest {
 		assertEquals("<label for='simple' >"
 				+ "harmfull imput&lt;script&gt;"
 				+ "alert('All your base are belong to us!')&lt;/script&gt; </label>"
-				+ "<input name='simple' id='simple' value='value' />  ", result);
+				+ "<input type='text' name='simple' id='simple' value='value' />  ", result);
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public class InputFieldTest {
 	public void testEscpapingValue(){
 		input.setValue("glāžšķūņu Преве́д" );
 		final String result=input.getField();
-		assertEquals("<input name='testname' id='testname' value='glāž&scaron;ķūņu Преве́д' />", result);
+		assertEquals("<input type='text' name='testname' id='testname' value='glāž&scaron;ķūņu Преве́д' />", result);
 	}
 	
 
