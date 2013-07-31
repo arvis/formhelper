@@ -6,7 +6,7 @@ import org.apache.commons.lang3.*;
 public abstract class BaseField  {
 	
 	private String name;
-	private String value;
+	private String value="";
 	private String label;
 	private String fieldDelimiter="";
 	
@@ -44,7 +44,8 @@ public abstract class BaseField  {
 	}
 
 	public void setName(String name) {
-		this.name=StringEscapeUtils.escapeHtml4(name);
+		if (value!=null)
+			this.name=StringEscapeUtils.escapeHtml4(name);
 	}
 
 	public String getValue() {
@@ -52,7 +53,8 @@ public abstract class BaseField  {
 	}
 
 	public void setValue(String value) {
-		this.value=StringEscapeUtils.escapeHtml4(value);
+		if (value!=null)
+			this.value=StringEscapeUtils.escapeHtml4(value);
 	}
 
 
@@ -61,7 +63,8 @@ public abstract class BaseField  {
 	}
 
 	public void setHtmType(String htmType) {
-		this.htmType =StringEscapeUtils.escapeHtml4(htmType);
+		if (value!=null)
+			this.htmType =StringEscapeUtils.escapeHtml4(htmType);
 	}
 
 

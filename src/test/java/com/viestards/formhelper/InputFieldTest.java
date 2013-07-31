@@ -19,7 +19,6 @@ public class InputFieldTest {
 	@Test
 	public void testGetField(){
 		String result =input.getField();
-		//org.junit.ComparisonFailure: expected:<<input []/>> but was:<<input [name='testname' id='testname' value='' ]/>>
 		assertEquals("<input type='text' name='testname' id='testname' value='' />", result);
 	}
 	@Test
@@ -85,6 +84,16 @@ public class InputFieldTest {
 		assertEquals("<input type='text' name='testname' id='testname' value='glāž&scaron;ķūņu Преве́д' />", result);
 	}
 	
+	/**
+	 * Test if display is correct if value is null
+	 * */
+	@Test
+	public void testForNullValue(){
+		input.setValue(null);
+		String result =input.getField();
+		assertEquals("<input type='text' name='testname' id='testname' value='' />", result);
+		
+	}
 
 
 }

@@ -66,7 +66,12 @@ public class FormHelperTest {
 	public void testGenerate(){
 		String result=carForm.generate();
 		System.out.println(result);
-		Assert.assertEquals("", result);
+		Assert.assertEquals("<label for='brand' >brand</label>"
+				+ "<input type='text' name='brand' id='brand' value='Ford' />  "
+				+ "<label for='licenceNumber' >licenceNumber</label>"
+				+ "<input type='text' name='licenceNumber' id='licenceNumber' value='' />  "
+				+ "<label for='description' >description</label>"
+				+ "<input type='text' name='description' id='description' value='' />  ", result);
 	}
 	
 	
